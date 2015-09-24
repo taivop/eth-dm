@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
-cat data/test/*.txt | python mapper.py | sort | python reducer.py >> output.o
+rm -f output_test.o
+cat data/test/*.txt | python mapper.py | sort | python reducer.py >> output_test.o

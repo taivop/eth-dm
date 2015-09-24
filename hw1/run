@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-original_dir=`pwd`
-cd $1
-cat data/*.txt | python mapper.py | sort | python reducer.py >> output
-cd "$original_dir"
+rm -f output.o
+cat data/*.txt | python mapper.py | sort | python reducer.py >> output.o
