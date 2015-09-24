@@ -62,3 +62,6 @@ target/
 
 # Mac
 .DS_Store
+
+# PyCharm
+.idea
