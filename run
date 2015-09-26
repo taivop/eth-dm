@@ -2,5 +2,5 @@
 
 original_dir=`pwd`
 cd $1
-cat data/*.txt | python mapper.py | sort | python reducer.py >> output
+cat data/*.txt | python mapper.py | sort | python reducer.py >> output.o
 cd "$original_dir"
