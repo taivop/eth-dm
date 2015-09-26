@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+rm -f output_test2.o
+cat output.o | python mapper2.py | sort | python reducer2.py >> output_test2.o #
