@@ -163,8 +163,8 @@ $x^{\ast} = \arg\min_{x_i\in U}|w^Tx_i$ \\
 h_{u,v} = [h_u(a),h_v(b)] = [\mathrm{sign}(u^Ta),\mathrm{sign}(v^Tb)] \qquad u,v ~ \mathcal{N}(0,1)
 }
 \textbf{Hash family: } $h_{u,v}(z) = \begin{cases}
-	h_{u,v}(z,z) & \text{if z is a database point vector} \\
-	h_{u,v}(z,-z) & \text{if z is a query hyperplane vector}
+	h_{u,v}(z,z) & \text{if z is database point vector} \\
+	h_{u,v}(z,-z) & \text{if z is query hyperplane vector}
 \end{cases}$ \\
 \al{
 P(h(w)=h(x)) &= P(h_u(w)=h_u(x))P(h_v(-w)=h_v(x)) \\
@@ -362,17 +362,20 @@ $\forall x \ f(x) \geq f(x_0) + g^T(x-x_0)$
 \subsubsection{Submodularity} % (fold)
 \label{ssub:submodularity}
 Set function F on V is submodular if $\forall A \subseteq B$ and $s \notin B$ and $a_1,a_2 \notin A$
-\al{F(A \cup \{s\}) - F(A) &\geq F(B \cup \{s\}) - F(B) \quad \textrm{Diminishing returns} \\
+\al{F(A \cup \{s\}) - F(A) &\geq F(B \cup \{s\}) - F(B) \quad \textrm{Dim. returns} \\
 F(S) + F(T) &\geq F(S \cup T) + F(S \cap T) \\
 F(A \cup \{a_1\}) + F(A \cup \{a_2\}) &\geq F(A \cup \{a_1,a_2\}) + f(A)}
 
 \textbf{Closedness under}\\
 \emph{Non-negative linear combinations: } for $F_1,\cdots,F_m$ submodular functions and $\lambda_1, \cdots, \lambda_m \geq 0$
+\begingroup
+    \fontsize{8pt}{8pt}\selectfont 
 \al {
-F(A \cup \{ s \}) - F(A) &= \left(\sum_i \lambda_i F_i(A \cup \{s\}) \right) - \left( \sum_i \lambda_i F_i(A)  \right) \\
- &= \sum_i \lambda_i (F_i(A \cup \{s\} - F_i(A)) \geq \sum_i \lambda_i (F_i(B \cup \{s\} - F_i(B)) \\
-&\geq (F(B \cup \{s\} - F(B))
+F(A \cup \{ s \}) - F(A) = \left(\sum_i \lambda_i F_i(A \cup \{s\}) \right) - \left( \sum_i \lambda_i F_i(A)  \right) \\
+ = \sum_i \lambda_i (F_i(A \cup \{s\} - F_i(A)) \geq \sum_i \lambda_i (F_i(B \cup \{s\} - F_i(B)) \\
+\geq (F(B \cup \{s\} - F(B))
 }
+\endgroup
 \emph{Restrictions: } for F submodular over $V$ and $S,W \subseteq V$
 \al{
 F'(S) &= F(S \cap W) \quad \textrm{submodular}
@@ -390,11 +393,14 @@ F'(S) &= F(V \backslash S) \quad \textrm{submodular}
 \end{mdframed}
 
 \textbf{Example: }
+\begingroup
+    \fontsize{8pt}{8pt}\selectfont 
 \al{
-\max_{j\in A \cup \{s\}} M_{ij} - \max_{j\in A} M_{ij} &= \max \{M_{is},\max_{j\in A} M_{ij} \} - \max_{j \in A} M_{ij} \\
-&= \max \{ M_{is} - \max_{j \in A} M_{ij}, 0 \} \\
+\max_{j\in A \cup \{s\}} M_{ij} - \max_{j\in A} M_{ij} = \max \{M_{is},\max_{j\in A} M_{ij} \} - \max_{j \in A} M_{ij} \\
+= \max \{ M_{is} - \max_{j \in A} M_{ij}, 0 \} \\
 \text{If } A \subseteq B \ \text{then} \ \max_{j \in A} M_{ij} \leq \max_{j \in B} M_{ij}
 }
+\endgroup
 
 \textbf{Lazy Greedy Algorithm}
 	\begin{algorithmic}
